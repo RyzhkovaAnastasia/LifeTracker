@@ -1,0 +1,150 @@
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.exe
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.deps.json
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.runtimeconfig.json
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.runtimeconfig.dev.json
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.dll
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.pdb
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csprojAssemblyReference.cache
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfoInputs.cache
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfo.cs
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.RazorTargetAssemblyInfo.cache
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.Manifest.cache
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.xml
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.dll
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.pdb
+C:\Users\sherl\Desktop\LifeTracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.genruntimeconfig.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.exe
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.deps.json
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.runtimeconfig.json
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.runtimeconfig.dev.json
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csprojAssemblyReference.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfoInputs.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfo.cs
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.RazorTargetAssemblyInfo.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.Manifest.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.xml
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.genruntimeconfig.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CopyComplete
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTracker.Data.dll
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\bin\Debug\netcoreapp3.1\LifeTracker.Data.pdb
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\Life tracker\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.exe
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.deps.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.runtimeconfig.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.runtimeconfig.dev.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTracker.Business.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTracker.Data.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTracker.Business.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTracker.Data.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csprojAssemblyReference.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfoInputs.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfo.cs
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.RazorTargetAssemblyInfo.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CopyComplete
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.Manifest.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.xml
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.genruntimeconfig.cache

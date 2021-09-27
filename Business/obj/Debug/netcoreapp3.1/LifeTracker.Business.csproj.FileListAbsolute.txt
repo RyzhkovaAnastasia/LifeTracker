@@ -1,5 +1,0 @@
-C:\Users\sherl\Desktop\Life tracker\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.deps.json
-C:\Users\sherl\Desktop\Life tracker\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.dll
-C:\Users\sherl\Desktop\Life tracker\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.csprojAssemblyReference.cache
-C:\Users\sherl\Desktop\Life tracker\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.AssemblyInfoInputs.cache
-C:\Users\sherl\Desktop\Life tracker\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.AssemblyInfo.cs

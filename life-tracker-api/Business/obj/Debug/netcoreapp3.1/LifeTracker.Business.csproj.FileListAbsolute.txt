@@ -1,0 +1,17 @@
+C:\Users\sherl\Desktop\Life tracker\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.deps.json
+C:\Users\sherl\Desktop\Life tracker\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.dll
+C:\Users\sherl\Desktop\Life tracker\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.csprojAssemblyReference.cache
+C:\Users\sherl\Desktop\Life tracker\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.AssemblyInfoInputs.cache
+C:\Users\sherl\Desktop\Life tracker\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.AssemblyInfo.cs
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.deps.json
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\bin\Debug\netcoreapp3.1\LifeTracker.Business.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\bin\Debug\netcoreapp3.1\LifeTracker.Data.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\bin\Debug\netcoreapp3.1\LifeTracker.Data.pdb
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.csprojAssemblyReference.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.AssemblyInfoInputs.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.AssemblyInfo.cs
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.csproj.CopyComplete
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Business\obj\Debug\netcoreapp3.1\LifeTracker.Business.pdb
