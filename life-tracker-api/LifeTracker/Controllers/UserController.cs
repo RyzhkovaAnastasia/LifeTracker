@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LifeTrackerApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private readonly IUserDomain _userDomain;
 
@@ -13,10 +13,5 @@ namespace LifeTrackerApi.Controllers
         {
             _userDomain = userDomain;
         }
-
-        [HttpGet]
-        public IActionResult Get() => Ok(_userDomain.Get());
-
-
     }
 }

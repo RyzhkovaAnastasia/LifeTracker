@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace LifeTracker.Data.Entities
 {
-    public class UserEntity
+    public class UserEntity : IdentityUser
     {
-        int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+
     }
 }
