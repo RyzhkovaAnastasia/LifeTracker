@@ -17,6 +17,10 @@ namespace LifeTrackerApi.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel user)
         {
+            if(user.Password != user.PasswordConfirm)
+            {
+                return BadRequest("Password confirm does not match password");
+            }
             string errors = _userDomain.RegisterUser(user);
 
             if (errors.Length == 0)
@@ -27,7 +31,7 @@ namespace LifeTrackerApi.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("Login")]
         public IActionResult Login(LoginViewModel user)
         {
             bool succeses = _userDomain.LoginUser(user);
@@ -41,7 +45,6 @@ namespace LifeTrackerApi.Controllers
 
         [HttpPost]
         [Route("Logout")]
-        [ValidateAntiForgeryToken]
         public IActionResult Logout()
         {
             string error = _userDomain.LogoutUser();

@@ -3,36 +3,14 @@ import environment from '../settings'
 
 axios.defaults.baseURL = environment.apiUrl;
 
-function registerUser(newUser) {
-    try {
-      const response = axios.post('/Account', newUser);
-      return JSON.parse(response.request.response);
-    } catch (error) {
-      console.error(error);
-      return error;
-    }
-  }
-
-function loginUser(user) {
-    try {
-      const response = axios.post('/Account', user);
-      return JSON.parse(response.request.response);
-    } catch (error) {
-      console.error(error);
-    }
+export const registerUser = (newUser) => {
+  return axios.post('/Account', newUser);
 }
 
-function logoutUser(newUser) {
-    try {
-      const response = axios.post('/Account/Logout');
-      return JSON.parse(response.request.response);
-    } catch (error) {
-      console.error(error);
-    }
+export const loginUser = (user) => {
+  return axios.post('/Account/Login', user);
 }
 
-export default {
-    registerUser,
-    loginUser,
-    logoutUser
-};
+export const logoutUser = () => {
+  return axios.post('/Account/Logout');
+}

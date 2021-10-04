@@ -1,4 +1,5 @@
-﻿using LifeTracker.Data.Entities;
+﻿using LifeTracker.Data.DTO;
+using LifeTracker.Data.Entities;
 using System.Collections.Generic;
 
 namespace LifeTracker.Data.Repositories.Interfaces
@@ -7,7 +8,7 @@ namespace LifeTracker.Data.Repositories.Interfaces
     {
         IEnumerable<UserEntity> Get();
         string RegisterUser(UserEntity user);
-        bool LoginUser(UserEntity user);
+        bool LoginUser(LoginDTO user);
         string LogoutUser();
     }
 }

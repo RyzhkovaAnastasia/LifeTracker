@@ -1,8 +1,10 @@
-﻿using LifeTracker.Data.Entities;
+﻿using LifeTracker.Data.DTO;
+using LifeTracker.Data.Entities;
 using LifeTracker.Data.Repositories.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LifeTracker.Data.Repositories
 {
@@ -24,13 +26,13 @@ namespace LifeTracker.Data.Repositories
         public string RegisterUser(UserEntity user)
         {
             var result = _userManager.CreateAsync(user, user.PasswordHash);
-            return result.Result.Succeeded? string.Empty : result.Result.Errors.ToString();
+            return result.Result.Succeeded ? string.Empty : string.Join("\n", result.Result.Errors.Select(x=>x.Description));
         }
 
-        public bool LoginUser(UserEntity user)
+        public bool LoginUser(LoginDTO user)
         {
-            
-            var result = _signInManager.PasswordSignInAsync(user.Email, user.PasswordHash, user.LockoutEnabled, false);
+            var userName = _userManager.FindByEmailAsync(user.Email).Result.UserName;
+            var result = _signInManager.PasswordSignInAsync(userName, user.Password, false, false);
             return result.Result.Succeeded;
         }
 

@@ -5,6 +5,7 @@ using LifeTracker.Data.Repositories.Interfaces;
 using LifeTracker.Data.Entities;
 using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.ViewModels;
+using LifeTracker.Data.DTO;
 
 namespace LifeTracker.Business.Domain
 {
@@ -24,7 +25,7 @@ namespace LifeTracker.Business.Domain
 
         public string RegisterUser(RegisterViewModel user)
         {
-            var userViewModel = new UserViewModel() { Email = user.Email, PasswordHash = user.Password, UserName = user.Name };
+            var userViewModel = new UserViewModel() { Email = user.Email, PasswordHash = user.Password, UserName = user.UserName };
              var userEntity = _mapper.Map<UserViewModel, UserEntity>(userViewModel);
 
             return _userRepository.RegisterUser(userEntity);
@@ -32,8 +33,7 @@ namespace LifeTracker.Business.Domain
 
         public bool LoginUser(LoginViewModel user)
         {
-            var userViewModel = new UserViewModel() { Email = user.Email, PasswordHash = user.Password };
-            var userEntity = _mapper.Map<UserViewModel, UserEntity>(userViewModel);
+            var userEntity = _mapper.Map<LoginViewModel, LoginDTO>(user);
 
             return _userRepository.LoginUser(userEntity);
         }
