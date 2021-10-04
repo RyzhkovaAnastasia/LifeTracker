@@ -34,7 +34,6 @@ namespace LifeTracker.Business.Domain
         public bool LoginUser(LoginViewModel user)
         {
             var userEntity = _mapper.Map<LoginViewModel, LoginDTO>(user);
-
             return _userRepository.LoginUser(userEntity);
         }
 

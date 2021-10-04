@@ -2,26 +2,27 @@ import { loginUser } from '../services/AuthService'
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { Redirect } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router-dom';
 
 export default function LoginForm(props) {
 
+    const history = useHistory(); 
     const [requestError, setError] = useState(null);
 
     const onSubmit = (values, { setSubmitting }) => {
-        setSubmitting(false);
-        setError(null);
         loginUser(values)
             .then(()=>{
-                //props.isAuth(true);
+                setSubmitting(true);
+                setError(null);
+                props.login(); 
                 toast.success("You are succsessfully logged in!");
-               // setTimeout(()=><Redirect to="/Home" />, 5000);
+                setTimeout(() => history.push('/Home'), 5000);
             })
             .catch(err => {
                 setError(err.response.data);
-                //props.isAuth(false);
+                setSubmitting(false);
             });
     };
 
@@ -29,13 +30,11 @@ export default function LoginForm(props) {
         <div>
             <ToastContainer />
             <Formik
-                initialValues={{ email: '', password: ''}}
+                initialValues={{ emailOrUsername: '', password: ''}}
                 validate={values => {
                     const errors = {};
-                    if (!values.email) {
-                        errors.email = 'Email is required';
-                    }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
-                        errors.email = 'Invalid email address';
+                    if (!values.emailOrUsername) {
+                        errors.emailOrUsername = 'Email or username is required';
                     }
 
                     if (!values.password) {
@@ -59,15 +58,15 @@ export default function LoginForm(props) {
                         <p className="card-title text-center text-secondary">Start using your tracker here</p>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email </label>
-                                <input type="email" id="email" name="email"
+                                <label htmlFor="emailOrUsername" className="form-label">Email </label>
+                                <input type="text" id="emailOrUsername" name="emailOrUsername"
                                     placeholder="example@mail.com"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    value={values.email}
+                                    value={values.emailOrUsername}
                                     required
-                                    className={"form-control" + (touched.email && errors.email ? " is-invalid" : "")} />
-                                {errors.email && touched.email ? <small className="text-danger">{errors.email}</small> : null}
+                                    className={"form-control" + (touched.emailOrUsername && errors.emailOrUsername ? " is-invalid" : "")} />
+                                {errors.emailOrUsername && touched.emailOrUsername ? <small className="text-danger">{errors.emailOrUsername}</small> : null}
 
                             </div>
                             <div className="mb-3">

@@ -26,13 +26,15 @@ namespace LifeTracker.Data.Repositories
         public string RegisterUser(UserEntity user)
         {
             var result = _userManager.CreateAsync(user, user.PasswordHash);
-            return result.Result.Succeeded ? string.Empty : string.Join("\n", result.Result.Errors.Select(x=>x.Description));
+            return result.Result.Succeeded ? 
+                string.Empty : 
+                string.Join("\n", result.Result.Errors.Select(x=>x.Description));
         }
 
         public bool LoginUser(LoginDTO user)
         {
-            var userName = _userManager.FindByEmailAsync(user.Email).Result.UserName;
-            var result = _signInManager.PasswordSignInAsync(userName, user.Password, false, false);
+            var userLogin = _userManager.FindByEmailAsync(user.EmailOrUsername).Result?.UserName ?? user.EmailOrUsername;
+            var result = _signInManager.PasswordSignInAsync(userLogin, user.Password, false, false);
             return result.Result.Succeeded;
         }
 

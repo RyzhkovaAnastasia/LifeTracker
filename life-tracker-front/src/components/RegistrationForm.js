@@ -2,26 +2,28 @@ import { registerUser } from '../services/AuthService'
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { Redirect } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router-dom';
 
 export function RegistrationForm (props) {
 
+    const history = useHistory(); 
+    
     const [requestError, setError] = useState(null);
 
     const onSubmit = (values, { setSubmitting }) => {
-        setSubmitting(false);
-        setError(null);
         registerUser(values)
             .then(()=>{
-                //props.isAuth(true); <-- ERROR: isAuth is not a function
+                setSubmitting(true);
+                setError(null);
+                props.register(); 
                 toast.success("You are succsessfully registered!");
-              //  setTimeout(()=><Redirect to="/Home" />, 5000);
+                setTimeout(() => history.push('/Home'), 5000);
             })
             .catch(err => {
                 setError(err.response.data);
-                //props.isAuth(false); <-- ERROR: isAuth is not a function
+                setSubmitting(false);
             });
     };
 
