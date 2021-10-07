@@ -5,6 +5,6 @@ namespace LifeTracker.Data
 {
     public interface ILifeTrackerDBContext
     {
-        DbSet<UserEntity> Users { get; set; }
+        public DbSet<UserEntity> Accounts { get; set; }
     }
 }
