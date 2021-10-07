@@ -139,8 +139,6 @@ C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netco
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csprojAssemblyReference.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfoInputs.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.AssemblyInfo.cs
-C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
-C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.RazorTargetAssemblyInfo.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CopyComplete
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\staticwebassets\LifeTrackerApi.StaticWebAssets.Manifest.cache
@@ -148,3 +146,18 @@ C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netco
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.dll
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.pdb
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.genruntimeconfig.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.StaticWebAssets.xml
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

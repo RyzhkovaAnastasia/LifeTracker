@@ -1,10 +1,14 @@
 ﻿using LifeTracker.Business.Models;
-using System.Collections.Generic;
+using LifeTracker.Business.ViewModels;
 
 namespace LifeTracker.Business.Domain.Interfaces
 {
     public interface IUserDomain
     {
-        IEnumerable<UserViewModel> Get();
+        string RegisterUser(RegisterViewModel user);
+        string LoginUser(LoginViewModel user);
+        void LogoutUser();
+        UserViewModel GetUser(string userId);
+        string GenerateJWT(string userId);
     }
 }
