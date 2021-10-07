@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1cYv+e70RrtVutHQnhEJES53yuYATIthTbEFaMxN8CyEENw8cZtH2jXpMUlpxQhEbWQ7UmQ1YiHnABqbQfwi6A==",
+  "dgSpecHash": "0qYXsGpWUgQwyQpX9FyGSr+6LjHnA95b8WRyAhGHDZPVY8qfTTJCzw/ogIEnAQIeX1Dh2Z+FZ4M/detQVPFVZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\LifeTracker\\LifeTrackerApi.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.9\\microsoft.aspnetcore.authentication.jwtbearer.3.1.9.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.10\\microsoft.aspnetcore.cryptography.internal.5.0.10.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.10\\microsoft.aspnetcore.cryptography.keyderivation.5.0.10.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\2.2.0\\microsoft.aspnetcore.dataprotection.2.2.0.nupkg.sha512",

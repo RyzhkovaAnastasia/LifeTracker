@@ -160,3 +160,4 @@ C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netco
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\LifeTrackerApi.StaticWebAssets.xml
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

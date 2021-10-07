@@ -6,9 +6,10 @@ namespace LifeTracker.Data.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        IEnumerable<UserEntity> Get();
+        IEnumerable<UserEntity> GetUsers();
         string RegisterUser(UserEntity user);
-        bool LoginUser(LoginDTO user);
-        string LogoutUser();
+        string LoginUser(LoginDTO user);
+        void LogoutUser();
+        UserEntity GetUser(string userId);
     }
 }

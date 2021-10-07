@@ -3,11 +3,13 @@ using Data;
 using LifeTracker.Business;
 using LifeTracker.Business.Domain;
 using LifeTracker.Business.Domain.Interfaces;
+using LifeTracker.Business.Options;
 using LifeTracker.Data;
 using LifeTracker.Data.Entities;
 using LifeTracker.Data.Repositories;
 using LifeTracker.Data.Repositories.Interfaces;
 using LifeTrackerApi;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -15,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using System;
 
 namespace LifeTracker
@@ -42,7 +45,6 @@ namespace LifeTracker
            .AddEntityFrameworkStores<LifeTrackerDBContext>()
            .AddDefaultTokenProviders();
 
-           
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -70,8 +72,7 @@ namespace LifeTracker
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-                options.LoginPath = "/Identity/Account/Login";
-                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.LoginPath = "/Account/Login";
                 options.SlidingExpiration = true;
             });
 
@@ -85,9 +86,34 @@ namespace LifeTracker
                       .AllowAnyMethod()
                       .AllowAnyHeader()
                       .AllowCredentials()
+                      .WithExposedHeaders("Content-Disposition")
                       .WithOrigins(frontOptions.Address);
                 });
             });
+
+            // Auth
+            var authOptionsSection = Configuration.GetSection("Auth");
+            services.Configure<AuthOption>(authOptionsSection);
+
+            var authOptions = authOptionsSection.Get<AuthOption>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+              .AddJwtBearer(options =>
+              {
+                  options.RequireHttpsMetadata = false;
+                  options.TokenValidationParameters = new TokenValidationParameters
+                  {
+                      ValidateIssuerSigningKey = true,
+                      IssuerSigningKey = authOptions.SymmetricSecurityKey,
+
+                      ValidateAudience = true,
+                      ValidAudience = authOptions.Audience,
+
+                      ValidateIssuer = true,
+                      ValidIssuer = authOptions.Issuer,
+
+                      ValidateLifetime = true
+                  };
+              });
 
             // Repositories
             services.AddTransient<ILifeTrackerDBContext, LifeTrackerDBContext>();

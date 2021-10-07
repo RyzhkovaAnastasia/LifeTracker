@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LifeTracker.Data.Repositories
 {
@@ -21,34 +22,44 @@ namespace LifeTracker.Data.Repositories
             _userManager = userManager;
         }
 
-        public IEnumerable<UserEntity> Get() => _context.Accounts;
+        public IEnumerable<UserEntity> GetUsers() => _context.Accounts;
+
+        public UserEntity GetUser(string userId) => _context.Accounts.Find(userId);
 
         public string RegisterUser(UserEntity user)
         {
-            var result = _userManager.CreateAsync(user, user.PasswordHash);
-            return result.Result.Succeeded ? 
-                string.Empty : 
-                string.Join("\n", result.Result.Errors.Select(x=>x.Description));
-        }
-
-        public bool LoginUser(LoginDTO user)
-        {
-            var userLogin = _userManager.FindByEmailAsync(user.EmailOrUsername).Result?.UserName ?? user.EmailOrUsername;
-            var result = _signInManager.PasswordSignInAsync(userLogin, user.Password, false, false);
-            return result.Result.Succeeded;
-        }
-
-        public string LogoutUser()
-        {
+            Task<IdentityResult> result = default;
             try
             {
-                var result = _signInManager.SignOutAsync();
-                return string.Empty;
+                result = _userManager.CreateAsync(user, user.PasswordHash);
+                var userId = _userManager.FindByEmailAsync(user.Email).Result.Id;
+                return userId;
             }
-            catch (AggregateException e)
+            catch 
             {
-                return e.Message;
+                throw new AggregateException(string.Join("\n", result.Result.Errors.Select(x => x.Description)));
             }
+        }
+
+        public string LoginUser(LoginDTO credentials)
+        {
+            Task<SignInResult> result = default;
+            try
+            {
+                var userId = _userManager.FindByEmailAsync(credentials.EmailOrUsername).Result.Id;
+                var userLogin = GetUser(userId).UserName ?? credentials.EmailOrUsername;
+                result = _signInManager.PasswordSignInAsync(userLogin, credentials.Password, false, false);
+                return userId;
+            }
+            catch
+            {
+                throw new Exception(result.Exception.Message);
+            }
+        }
+
+        public void LogoutUser()
+        {
+            _signInManager.SignOutAsync();
         }
     }
 }

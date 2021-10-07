@@ -1,11 +1,15 @@
-﻿using LifeTracker.Business.Domain.Interfaces;
+﻿using LifeTracker.Business.CustomException;
+using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace LifeTrackerApi.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    //[Authorize]
     public class AccountController : Controller
     {
         private readonly IUserDomain _userDomain;
@@ -15,44 +19,47 @@ namespace LifeTrackerApi.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Register(RegisterViewModel user)
         {
-            if(user.Password != user.PasswordConfirm)
+            if (user.Password != user.PasswordConfirm)
             {
                 return BadRequest("Password confirm does not match password");
             }
-            string errors = _userDomain.RegisterUser(user);
 
-            if (errors.Length == 0)
+            try
             {
-                return Ok("User was succesfully registered");
+                string id = _userDomain.RegisterUser(user);
+
+                return Ok(_userDomain.GenerateJWT(id));
             }
-            return BadRequest(errors);
+            catch (RegistrationException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
-        [HttpPost]
-        [Route("Login")]
+        [HttpPost("Login")]
+        [AllowAnonymous]
         public IActionResult Login(LoginViewModel user)
         {
-            bool succeses = _userDomain.LoginUser(user);
-
-            if (succeses)
+            try
             {
-                return Ok("User was succesfully login");
+                string id = _userDomain.LoginUser(user);
+                return Ok(_userDomain.GenerateJWT(id));
+
             }
-            return BadRequest("Invalid credentials");
+            catch (LoginException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPost]
-        [Route("Logout")]
+        [HttpPost("Logout")]
         public IActionResult Logout()
         {
-            string error = _userDomain.LogoutUser();
-            if (error.Length == 0)
-            {
-                return Ok();
-            }
-            return BadRequest(error);
+            _userDomain.LogoutUser();
+            return Ok();
         }
     }
 }
