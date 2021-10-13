@@ -30,11 +30,11 @@ export default function LoginForm(props) {
         <div>
             <ToastContainer />
             <Formik
-                initialValues={{ emailOrUsername: '', password: ''}}
+                initialValues={{ email: '', password: ''}}
                 validate={values => {
                     const errors = {};
-                    if (!values.emailOrUsername) {
-                        errors.emailOrUsername = 'Email or username is required';
+                    if (!values.email) {
+                        errors.email = 'Email is required';
                     }
 
                     if (!values.password) {
@@ -58,15 +58,15 @@ export default function LoginForm(props) {
                         <p className="card-title text-center text-secondary">Start using your tracker here</p>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <label htmlFor="emailOrUsername" className="form-label">Email </label>
-                                <input type="text" id="emailOrUsername" name="emailOrUsername"
+                                <label htmlFor="email" className="form-label">Email </label>
+                                <input type="text" id="email" name="email"
                                     placeholder="example@mail.com"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    value={values.emailOrUsername}
+                                    value={values.email}
                                     required
-                                    className={"form-control" + (touched.emailOrUsername && errors.emailOrUsername ? " is-invalid" : "")} />
-                                {errors.emailOrUsername && touched.emailOrUsername ? <small className="text-danger">{errors.emailOrUsername}</small> : null}
+                                    className={"form-control" + (touched.email && errors.email ? " is-invalid" : "")} />
+                                {errors.email && touched.email ? <small className="text-danger">{errors.email}</small> : null}
 
                             </div>
                             <div className="mb-3">

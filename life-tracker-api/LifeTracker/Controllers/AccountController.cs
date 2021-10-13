@@ -9,7 +9,7 @@ namespace LifeTrackerApi.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly IUserDomain _userDomain;
@@ -47,7 +47,6 @@ namespace LifeTrackerApi.Controllers
             {
                 string id = _userDomain.LoginUser(user);
                 return Ok(_userDomain.GenerateJWT(id));
-
             }
             catch (LoginException ex)
             {

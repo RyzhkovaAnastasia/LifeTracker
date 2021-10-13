@@ -19,6 +19,101 @@ namespace LifeTracker.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.HasSequence<int>("SeriesId_seq");
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ItemEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Note")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemEntity");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("ItemEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ItemTagsEntity", b =>
+                {
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ItemId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ItemTagsEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.SubtaskEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ComplexItemsId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsComplete")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ComplexItemsId");
+
+                    b.ToTable("SubtaskEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.TagEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
             modelBuilder.Entity("LifeTracker.Data.Entities.UserEntity", b =>
                 {
                     b.Property<string>("Id")
@@ -30,6 +125,11 @@ namespace LifeTracker.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Currency")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("decimal(18,2)")
+                        .HasDefaultValue(10m);
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -215,6 +315,133 @@ namespace LifeTracker.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("LifeTracker.Data.Entities.ComplexItemEntity", b =>
+                {
+                    b.HasBaseType("LifeTracker.Data.Entities.ItemEntity");
+
+                    b.Property<DateTime>("Date")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ComplexItemEntity_Date")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<int>("Difficulty")
+                        .HasColumnType("int")
+                        .HasColumnName("ComplexItemEntity_Difficulty");
+
+                    b.Property<bool>("IsComplete")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasDiscriminator().HasValue("ComplexItemEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.HabitEntity", b =>
+                {
+                    b.HasBaseType("LifeTracker.Data.Entities.ItemEntity");
+
+                    b.Property<DateTime>("Date")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<int>("Difficulty")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsEncouragment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsPunisment")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Reiteration")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Strike")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.HasIndex("UserId");
+
+                    b.HasDiscriminator().HasValue("HabitEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.RewardEntity", b =>
+                {
+                    b.HasBaseType("LifeTracker.Data.Entities.ItemEntity");
+
+                    b.Property<decimal>("Cost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasIndex("UserId");
+
+                    b.HasDiscriminator().HasValue("RewardEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.DailyEntity", b =>
+                {
+                    b.HasBaseType("LifeTracker.Data.Entities.ComplexItemEntity");
+
+                    b.Property<DateTime>("EndDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
+                    b.Property<int>("Reiteration")
+                        .HasColumnType("int")
+                        .HasColumnName("DailyEntity_Reiteration");
+
+                    b.Property<int?>("SeriesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("NEXT VALUE FOR SeriesId_seq");
+
+                    b.HasIndex("UserId");
+
+                    b.HasDiscriminator().HasValue("DailyEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ToDoEntity", b =>
+                {
+                    b.HasBaseType("LifeTracker.Data.Entities.ComplexItemEntity");
+
+                    b.HasIndex("UserId");
+
+                    b.HasDiscriminator().HasValue("ToDoEntity");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ItemTagsEntity", b =>
+                {
+                    b.HasOne("LifeTracker.Data.Entities.ItemEntity", "Item")
+                        .WithMany("Tags")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LifeTracker.Data.Entities.TagEntity", "Tag")
+                        .WithMany("Items")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.SubtaskEntity", b =>
+                {
+                    b.HasOne("LifeTracker.Data.Entities.ComplexItemEntity", "ComplexItems")
+                        .WithMany("Subtasks")
+                        .HasForeignKey("ComplexItemsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ComplexItems");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -264,6 +491,76 @@ namespace LifeTracker.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.HabitEntity", b =>
+                {
+                    b.HasOne("LifeTracker.Data.Entities.UserEntity", "User")
+                        .WithMany("Habits")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.RewardEntity", b =>
+                {
+                    b.HasOne("LifeTracker.Data.Entities.UserEntity", "User")
+                        .WithMany("Rewards")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.DailyEntity", b =>
+                {
+                    b.HasOne("LifeTracker.Data.Entities.UserEntity", "User")
+                        .WithMany("Dailies")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ToDoEntity", b =>
+                {
+                    b.HasOne("LifeTracker.Data.Entities.UserEntity", "User")
+                        .WithMany("ToDos")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ItemEntity", b =>
+                {
+                    b.Navigation("Tags");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.TagEntity", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.UserEntity", b =>
+                {
+                    b.Navigation("Dailies");
+
+                    b.Navigation("Habits");
+
+                    b.Navigation("Rewards");
+
+                    b.Navigation("ToDos");
+                });
+
+            modelBuilder.Entity("LifeTracker.Data.Entities.ComplexItemEntity", b =>
+                {
+                    b.Navigation("Subtasks");
                 });
 #pragma warning restore 612, 618
         }

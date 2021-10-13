@@ -26,34 +26,30 @@ namespace LifeTracker.Data.Repositories
 
         public UserEntity GetUser(string userId) => _context.Accounts.Find(userId);
 
-        public string RegisterUser(UserEntity user)
+        public string RegisterUser(UserEntity user, string password)
         {
-            Task<IdentityResult> result = default;
+            IdentityResult result = default;
             try
             {
-                result = _userManager.CreateAsync(user, user.PasswordHash);
-                var userId = _userManager.FindByEmailAsync(user.Email).Result.Id;
-                return userId;
+                result = _userManager.CreateAsync(user, password).Result;
+                return user.Id;
             }
-            catch 
+            catch
             {
-                throw new AggregateException(string.Join("\n", result.Result.Errors.Select(x => x.Description)));
+                throw new AggregateException(string.Join("\n", result.Errors.Select(x => x.Description)));
             }
         }
 
         public string LoginUser(LoginDTO credentials)
         {
-            Task<SignInResult> result = default;
             try
             {
-                var userId = _userManager.FindByEmailAsync(credentials.EmailOrUsername).Result.Id;
-                var userLogin = GetUser(userId).UserName ?? credentials.EmailOrUsername;
-                result = _signInManager.PasswordSignInAsync(userLogin, credentials.Password, false, false);
-                return userId;
+                _signInManager.PasswordSignInAsync(credentials.Email, credentials.Password, false, false).Wait();
+                return _userManager.FindByEmailAsync(credentials.Email).Result.Id;
             }
             catch
             {
-                throw new Exception(result.Exception.Message);
+                throw new Exception();
             }
         }
 

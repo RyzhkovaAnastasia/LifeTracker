@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <StartupObject></StartupObject>
+    <UserSecretsId>037d3dcf-7b0c-47af-93eb-2befd31bec44</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
   </ItemGroup>
 
   <ItemGroup>

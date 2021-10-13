@@ -2,6 +2,7 @@
 using LifeTracker.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Data
 {
@@ -25,18 +26,24 @@ namespace Data
 
             var userModelBuilder = builder.Entity<UserEntity>();
             userModelBuilder
-                .Property(user => user.Money)
-                .HasDefaultValue(decimal.Zero);
+                .Property(user => user.Currency)
+                .HasDefaultValue(10m);
             #endregion
             #region RewardEntity
             var rewardsModelBuilder = builder.Entity<RewardEntity>();
-            rewardsModelBuilder
-                .HasKey(reward => reward.Id);
 
             rewardsModelBuilder
                 .Property(reward => reward.Title)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            rewardsModelBuilder
+               .Property(reward => reward.Cost)
+               .IsRequired();
+
+            rewardsModelBuilder
+               .Property(reward => reward.ItemType)
+               .IsRequired();
 
             rewardsModelBuilder
                 .Property(reward => reward.Note)
@@ -50,8 +57,6 @@ namespace Data
             #endregion
             #region HabitEntity
             var habitModelBuilder = builder.Entity<HabitEntity>();
-            habitModelBuilder
-                .HasKey(habit => habit.Id);
 
             habitModelBuilder
                 .Property(habit => habit.Title)
@@ -63,6 +68,22 @@ namespace Data
                 .HasMaxLength(1000);
 
             habitModelBuilder
+                .Property(habit => habit.Date)
+                .HasDefaultValueSql("getdate()");
+
+            habitModelBuilder
+                .Property(habit => habit.Difficulty)
+                .IsRequired();
+
+            habitModelBuilder
+                .Property(habit => habit.ItemType)
+                .IsRequired();
+
+            habitModelBuilder
+                .Property(habit => habit.Strike)
+                .HasDefaultValue(0);
+
+            habitModelBuilder
                 .HasOne(u => u.User)
                 .WithMany(habit => habit.Habits)
                 .HasForeignKey(habit => habit.UserId)
@@ -70,12 +91,27 @@ namespace Data
             #endregion
             #region ToDoEntity
             var todoModelBuilder = builder.Entity<ToDoEntity>();
-            todoModelBuilder
-                .HasKey(todo => todo.Id);
 
             todoModelBuilder
                 .Property(todo => todo.IsComplete)
-                .HasDefaultValue(false);
+                .HasDefaultValue(false)
+                .IsRequired();
+
+            todoModelBuilder
+                .Property(todo => todo.Date)
+                .HasDefaultValueSql("getdate()");
+
+            todoModelBuilder
+               .Property(todo => todo.Difficulty)
+               .IsRequired();
+
+            todoModelBuilder
+              .Property(todo => todo.ItemType)
+              .IsRequired();
+
+            todoModelBuilder
+               .Property(todo => todo.IsComplete)
+               .HasDefaultValue(false);
 
             todoModelBuilder
                 .Property(todo => todo.Title)
@@ -94,12 +130,26 @@ namespace Data
             #endregion
             #region DailyEntity
             var dailyModelBuilder = builder.Entity<DailyEntity>();
-            dailyModelBuilder
-                .HasKey(daily => daily.Id);
 
             dailyModelBuilder
                 .Property(daily => daily.IsComplete)
                 .HasDefaultValue(false);
+
+            dailyModelBuilder
+               .Property(daily => daily.Date)
+               .HasDefaultValueSql("getdate()");
+
+            dailyModelBuilder
+               .Property(daily => daily.EndDate)
+               .HasDefaultValueSql("getdate()");
+
+            dailyModelBuilder
+               .Property(daily => daily.Difficulty)
+               .IsRequired();
+
+            dailyModelBuilder
+               .Property(daily => daily.ItemType)
+               .IsRequired();
 
             dailyModelBuilder
                 .Property(daily => daily.Title)
@@ -115,18 +165,66 @@ namespace Data
                 .WithMany(daily => daily.Dailies)
                 .HasForeignKey(daily => daily.UserId)
                 .IsRequired();
+
+            builder
+                .HasSequence<int>("SeriesId_seq")
+                .StartsAt(1)
+                .IncrementsBy(1);
+
+            dailyModelBuilder
+              .Property(daily => daily.SeriesId)
+              .HasDefaultValueSql("NEXT VALUE FOR SeriesId_seq");
+
+
             #endregion
             #region TagEntity
             var tagModelBuilder = builder.Entity<TagEntity>();
+
+            tagModelBuilder
+                .Property(t => t.Title)
+                .HasMaxLength(100)
+                .IsRequired();
+
             #endregion
             #region ItemTagsEntity
             var itemTagModelBuilder = builder.Entity<ItemTagsEntity>();
+
+            itemTagModelBuilder
+                .HasKey(i => new
+                {
+                    i.ItemId,
+                    i.TagId
+                });
+
+            itemTagModelBuilder
+            .HasOne(i => i.Item)
+            .WithMany(t => t.Tags)
+            .HasForeignKey(ii => ii.ItemId);
+
+            itemTagModelBuilder
+            .HasOne(t => t.Tag)
+            .WithMany(i => i.Items)
+            .HasForeignKey(ti => ti.TagId);
+
             #endregion
             #region SubtaskEntity
             var subtaskTagModelBuilder = builder.Entity<SubtaskEntity>();
-            #endregion
-            #region ItemSubtaskEntity
-            var itemSubtaskTagModelBuilder = builder.Entity<ItemSubtaskEntity>();
+
+            subtaskTagModelBuilder
+                .Property(x => x.Title)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            subtaskTagModelBuilder
+                .Property(s => s.IsComplete)
+                .HasDefaultValue(false)
+                .IsRequired();
+
+            subtaskTagModelBuilder
+                .HasOne(ci => ci.ComplexItems)
+                .WithMany(s => s.Subtasks)
+                .HasForeignKey(cii => cii.ComplexItemsId);
+
             #endregion
         }
     }

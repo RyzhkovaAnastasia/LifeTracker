@@ -6,11 +6,11 @@ namespace LifeTracker.Data.Entities
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public List<ItemEntity> Items { get; set; } 
+        public List<ItemTagsEntity> Items { get; set; } 
 
         public TagEntity()
         {
-            Items = new List<ItemEntity>();
+            Items = new List<ItemTagsEntity>();
         }
     }
 }

@@ -4,6 +4,6 @@ namespace LifeTracker.Business.Models
 {
     public class UserViewModel: IdentityUser
     {
-        public decimal Money { get; set; }
+        public decimal? Currency { get; set; }
     }
 }

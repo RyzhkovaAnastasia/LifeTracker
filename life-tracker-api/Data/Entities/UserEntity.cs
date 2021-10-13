@@ -5,7 +5,7 @@ namespace LifeTracker.Data.Entities
 {
     public class UserEntity : IdentityUser
     {
-        public decimal Money { set; get; }
+        public decimal? Currency { set; get; }
         public List<RewardEntity> Rewards { get; set; }
         public List<HabitEntity> Habits { get; set; }
         public List<ToDoEntity> ToDos { get; set; }

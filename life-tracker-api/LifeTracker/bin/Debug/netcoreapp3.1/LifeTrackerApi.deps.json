@@ -31,6 +31,7 @@
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore.Design": "5.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.Extensions.Configuration.Json": "2.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
@@ -321,54 +322,12 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
-      "EntityFramework/6.1.0": {
-        "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.1.30225.0"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.1.30225.0"
-          }
-        },
-        "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {},
-          "lib/net45/EntityFramework.dll": {}
-        }
-      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
           }
-        }
-      },
-      "Microsoft.AspNet.Identity.Core/2.2.3": {
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.3.11125"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {}
-        }
-      },
-      "Microsoft.AspNet.Identity.EntityFramework/2.2.3": {
-        "dependencies": {
-          "EntityFramework": "6.1.0",
-          "Microsoft.AspNet.Identity.Core": "2.2.3"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.3.11125"
-          }
-        },
-        "compile": {
-          "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -518,7 +477,6 @@
           "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/5.0.10": {},
       "Microsoft.AspNetCore.WebUtilities/2.2.0": {
         "dependencies": {
           "Microsoft.Net.Http.Headers": "2.2.0",
@@ -1686,6 +1644,14 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "Enums/1.0.0": {
+        "runtime": {
+          "Enums.dll": {}
+        },
+        "compile": {
+          "Enums.dll": {}
+        }
+      },
       "LifeTracker.Business/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1",
@@ -1702,11 +1668,11 @@
       },
       "LifeTracker.Data/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNet.Identity.EntityFramework": "2.2.3",
+          "Enums": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.10",
-          "Microsoft.AspNetCore.Identity.UI": "5.0.10",
           "Microsoft.EntityFrameworkCore": "5.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.2.0",
@@ -3330,33 +3296,12 @@
       "path": "automapper/10.1.1",
       "hashPath": "automapper.10.1.1.nupkg.sha512"
     },
-    "EntityFramework/6.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-u/M0OEfqxTUsL5BwzD66eBGm278/ozqdLK3JvMO6QwUxxc+z7ZUkTYm4suDhWRqzkc6mOhvXDQY5dZUwbldxyQ==",
-      "path": "entityframework/6.1.0",
-      "hashPath": "entityframework.6.1.0.nupkg.sha512"
-    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
-    },
-    "Microsoft.AspNet.Identity.Core/2.2.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g==",
-      "path": "microsoft.aspnet.identity.core/2.2.3",
-      "hashPath": "microsoft.aspnet.identity.core.2.2.3.nupkg.sha512"
-    },
-    "Microsoft.AspNet.Identity.EntityFramework/2.2.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-dt4XZChjw3a6jE66Yd6LkF9omspxi0A9lJpwBZz8Wl1sabOS6dlLP1OOTVuUjtPaoAshjoIzvS6DFRQdPyq55g==",
-      "path": "microsoft.aspnet.identity.entityframework/2.2.3",
-      "hashPath": "microsoft.aspnet.identity.entityframework.2.2.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
@@ -3476,13 +3421,6 @@
       "sha512": "sha512-L9Tavjj82A9Ybo6Uedxu5CDie7DXXjx5tXLy3P0Ade2LXcrQwC4bJcdj8+QvBHqMnsd9ZsGZfO/T6tqxTYpAJg==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.10",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.5.0.10.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Identity.UI/5.0.10": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KhVnKaRR0+T95+RJZXznOe+9k3VW4jE4BTMeYAhUTMOKK0kWn8bBEdbbJGK272q8c1qa2SLxAc0r4ZJdiQpQ8Q==",
-      "path": "microsoft.aspnetcore.identity.ui/5.0.10",
-      "hashPath": "microsoft.aspnetcore.identity.ui.5.0.10.nupkg.sha512"
     },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
       "type": "package",
@@ -4267,6 +4205,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Enums/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "LifeTracker.Business/1.0.0": {
       "type": "project",

@@ -36,10 +36,9 @@ namespace LifeTracker.Business.Domain
         {
             try
             {
-                var userViewModel = new UserViewModel() { Email = user.Email, PasswordHash = user.Password, UserName = user.UserName };
-                var userEntity = _mapper.Map<UserViewModel, UserEntity>(userViewModel);
+                var userEntity = _mapper.Map<RegisterViewModel, UserEntity>(user);
 
-                return _userRepository.RegisterUser(userEntity);
+                return _userRepository.RegisterUser(userEntity, user.Password);
             }
             catch(Exception e)
             {
@@ -83,7 +82,7 @@ namespace LifeTracker.Business.Domain
               },
               expires: DateTime.Now.AddMinutes(authOptions.TokenLifetime),
               signingCredentials: credentials);
-            Console.WriteLine(new JwtSecurityTokenHandler().WriteToken(token));
+
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }

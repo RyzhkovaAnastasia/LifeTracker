@@ -19,6 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Threading.Tasks;
 
 namespace LifeTracker
 {
@@ -42,8 +43,7 @@ namespace LifeTracker
 
             services.AddIdentity<UserEntity, IdentityRole>()
             .AddRoles<IdentityRole>()
-           .AddEntityFrameworkStores<LifeTrackerDBContext>()
-           .AddDefaultTokenProviders();
+           .AddEntityFrameworkStores<LifeTrackerDBContext>();
 
 
             services.Configure<IdentityOptions>(options =>
@@ -55,26 +55,33 @@ namespace LifeTracker
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
 
-                // Lockout settings
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.Lockout.MaxFailedAccessAttempts = 5;
-                options.Lockout.AllowedForNewUsers = true;
-
                 // User settings
-                options.User.AllowedUserNameCharacters =
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._ ";
                 options.User.RequireUniqueEmail = true;
             });
 
-            services.ConfigureApplicationCookie(options =>
-            {
-                // Cookie settings
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+            // Auth
+            var authOptionsSection = Configuration.GetSection("Auth");
+            services.Configure<AuthOption>(authOptionsSection);
 
-                options.LoginPath = "/Account/Login";
-                options.SlidingExpiration = true;
-            });
+            var authOptions = authOptionsSection.Get<AuthOption>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+              .AddJwtBearer(options =>
+              {
+                  options.RequireHttpsMetadata = true;
+                  options.TokenValidationParameters = new TokenValidationParameters
+                  {
+                      ValidateIssuerSigningKey = true,
+                      IssuerSigningKey = authOptions.SymmetricSecurityKey,
+
+                      ValidateAudience = true,
+                      ValidAudience = authOptions.Audience,
+
+                      ValidateIssuer = true,
+                      ValidIssuer = authOptions.Issuer,
+
+                      ValidateLifetime = true
+                  };
+              });
 
             // CORS 
             var frontOptions = Configuration.GetSection("Front").Get<FrontOption>();
@@ -90,30 +97,6 @@ namespace LifeTracker
                       .WithOrigins(frontOptions.Address);
                 });
             });
-
-            // Auth
-            var authOptionsSection = Configuration.GetSection("Auth");
-            services.Configure<AuthOption>(authOptionsSection);
-
-            var authOptions = authOptionsSection.Get<AuthOption>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddJwtBearer(options =>
-              {
-                  options.RequireHttpsMetadata = false;
-                  options.TokenValidationParameters = new TokenValidationParameters
-                  {
-                      ValidateIssuerSigningKey = true,
-                      IssuerSigningKey = authOptions.SymmetricSecurityKey,
-
-                      ValidateAudience = true,
-                      ValidAudience = authOptions.Audience,
-
-                      ValidateIssuer = true,
-                      ValidIssuer = authOptions.Issuer,
-
-                      ValidateLifetime = true
-                  };
-              });
 
             // Repositories
             services.AddTransient<ILifeTrackerDBContext, LifeTrackerDBContext>();
