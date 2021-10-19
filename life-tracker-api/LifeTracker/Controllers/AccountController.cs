@@ -3,7 +3,6 @@ using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace LifeTrackerApi.Controllers
 {
@@ -54,10 +53,10 @@ namespace LifeTrackerApi.Controllers
             }
         }
 
-        [HttpPost("Logout")]
-        public IActionResult Logout()
+        [HttpGet("Users")]
+        public IActionResult GetUsers()
         {
-            _userDomain.LogoutUser();
+            _userDomain.GetUsers();
             return Ok();
         }
     }

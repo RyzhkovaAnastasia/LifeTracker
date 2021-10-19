@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using LifeTracker.Business.Models;
 using System.Collections.Generic;
-using LifeTracker.Data.Repositories.Interfaces;
 using LifeTracker.Data.Entities;
 using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.ViewModels;
@@ -13,32 +12,33 @@ using LifeTracker.Business.Options;
 using Microsoft.Extensions.Options;
 using System;
 using LifeTracker.Business.CustomException;
+using Microsoft.AspNetCore.Identity;
 
 namespace LifeTracker.Business.Domain
 {
     public class UserDomain : IUserDomain
     {
-        private readonly IUserRepository _userRepository;
+        private readonly UserManager<UserEntity> _userManager;
         private readonly IMapper _mapper;
         private readonly IOptions<AuthOption> _authOptions;
 
-        public UserDomain(IUserRepository userRepository, IMapper mapper, IOptions<AuthOption> authOptions)
+        public UserDomain(UserManager<UserEntity> userManager, IMapper mapper, IOptions<AuthOption> authOptions)
         {
-            _userRepository = userRepository;
+            _userManager = userManager;
             _mapper = mapper;
             _authOptions = authOptions;
         }
 
         public IEnumerable<UserViewModel> GetUsers() =>
-          _mapper.Map<IEnumerable<UserEntity>, IEnumerable<UserViewModel>>(_userRepository.GetUsers());
+          _mapper.Map<IEnumerable<UserEntity>, IEnumerable<UserViewModel>>(_userManager.Users);
 
         public string RegisterUser(RegisterViewModel user)
         {
             try
             {
                 var userEntity = _mapper.Map<RegisterViewModel, UserEntity>(user);
-
-                return _userRepository.RegisterUser(userEntity, user.Password);
+                _userManager.CreateAsync(userEntity, user.Password);
+                return _userManager.GetUserIdAsync(userEntity).Result;
             }
             catch(Exception e)
             {
@@ -51,17 +51,22 @@ namespace LifeTracker.Business.Domain
             try
             {
                 var userEntity = _mapper.Map<LoginViewModel, LoginDTO>(user);
-                return _userRepository.LoginUser(userEntity);
+                var userByEmail =_userManager.FindByEmailAsync(userEntity.Email).Result;
+
+                if (_userManager.CheckPasswordAsync(userByEmail, user.Password).Result)
+                {
+                    return _userManager.GetUserIdAsync(userByEmail).Result;
+                }
+                throw new LoginException("Invalid password");
             }
             catch
             {
-                throw new LoginException("Invalid credential");
+                throw new LoginException("Invalid credentials");
             }
         }
 
-        public void LogoutUser() => _userRepository.LogoutUser();
-
-        public UserViewModel GetUser(string userId) => _mapper.Map<UserEntity, UserViewModel>(_userRepository.GetUser(userId));
+        public UserViewModel GetUser(string userId) 
+            => _mapper.Map<UserEntity, UserViewModel>(_userManager.FindByIdAsync(userId).Result);
 
         public string GenerateJWT(string userId)
         {

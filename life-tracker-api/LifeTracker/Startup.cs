@@ -6,8 +6,6 @@ using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.Options;
 using LifeTracker.Data;
 using LifeTracker.Data.Entities;
-using LifeTracker.Data.Repositories;
-using LifeTracker.Data.Repositories.Interfaces;
 using LifeTrackerApi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -18,8 +16,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Threading.Tasks;
 
 namespace LifeTracker
 {
@@ -100,7 +96,6 @@ namespace LifeTracker
 
             // Repositories
             services.AddTransient<ILifeTrackerDBContext, LifeTrackerDBContext>();
-            services.AddTransient<IUserRepository, UserRepository>();
 
             // Domains
             services.AddTransient<IUserDomain, UserDomain>();

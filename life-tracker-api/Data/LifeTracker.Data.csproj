@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Enums\Enums.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\Interfaces\" />
+  </ItemGroup>
+
 </Project>
