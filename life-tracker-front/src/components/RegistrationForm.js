@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 
 export function RegistrationForm (props) {
 
@@ -18,8 +20,8 @@ export function RegistrationForm (props) {
                 setSubmitting(true);
                 setError(null);
                 props.register(); 
-                toast.success("You are succsessfully registered!");
-                setTimeout(() => history.push('/Home'), 5000);
+                toast.success("You are succsessfully registered!", { autoClose: 2500 });
+                setTimeout(() => history.push('/Home'), 2500);
             })
             .catch(err => {
                 setError(err.response.data);
@@ -29,7 +31,7 @@ export function RegistrationForm (props) {
 
     return (
         <div>
-            <ToastContainer />
+            <ToastContainer/>
             <Formik
                 initialValues={{ username: '', email: '', password: '', passwordConfirm: '' }}
                 validate={values => {
@@ -73,7 +75,7 @@ export function RegistrationForm (props) {
                         <p className="card-title text-center text-secondary">Start using your tracker here</p>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <label htmlFor="username" className="form-label">Username </label>
+                                <label htmlFor="username" className="form-label"> <FontAwesomeIcon icon={faUser}/> Username </label>
                                 <input type="text" className="form-control" id="username" name="username" placeholder="username"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -82,7 +84,7 @@ export function RegistrationForm (props) {
                                 {errors.username && touched.username ? <small className="text-danger">{errors.username}</small> : null}
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email </label>
+                                <label htmlFor="email" className="form-label"> <FontAwesomeIcon icon={faEnvelope}/> Email </label>
                                 <input type="email" id="email" name="email"
                                     placeholder="example@mail.com"
                                     onChange={handleChange}
@@ -94,7 +96,7 @@ export function RegistrationForm (props) {
 
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="password" className="form-label">Password</label>
+                                <label htmlFor="password" className="form-label"> <FontAwesomeIcon icon={faLock}/> Password</label>
                                 <input type="password" id="password" name="password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -104,7 +106,7 @@ export function RegistrationForm (props) {
                                 {errors.password && touched.password ? <small className="text-danger">{errors.password}</small> : null}
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="passwordConfirm" className="form-label">Confirm password</label>
+                                <label htmlFor="passwordConfirm" className="form-label"><FontAwesomeIcon icon={faLock}/> Confirm password</label>
                                 <input type="password" id="passwordConfirm" name="passwordConfirm"
                                     onChange={handleChange}
                                     onBlur={handleBlur}

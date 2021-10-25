@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LifeTracker.Business.ViewModels
 {
-    public class TagsViewModel
+    public class TagViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

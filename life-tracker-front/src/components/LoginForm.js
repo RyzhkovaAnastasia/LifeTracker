@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 
 export default function LoginForm(props) {
 
@@ -17,8 +19,8 @@ export default function LoginForm(props) {
                 setSubmitting(true);
                 setError(null);
                 props.login(); 
-                toast.success("You are succsessfully logged in!");
-                setTimeout(() => history.push('/Home'), 5000);
+                toast.success("You are succsessfully logged in!", { autoClose: 2500 });
+                setTimeout(() => history.push('/Home'), 2500);
             })
             .catch(err => {
                 setError(err.response.data);
@@ -58,7 +60,7 @@ export default function LoginForm(props) {
                         <p className="card-title text-center text-secondary">Start using your tracker here</p>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email </label>
+                                <label htmlFor="email" className="form-label"> <FontAwesomeIcon icon={faEnvelope}/> Email </label>
                                 <input type="text" id="email" name="email"
                                     placeholder="example@mail.com"
                                     onChange={handleChange}
@@ -70,7 +72,7 @@ export default function LoginForm(props) {
 
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="password" className="form-label">Password</label>
+                                <label htmlFor="password" className="form-label"> <FontAwesomeIcon icon={faLock}/> Password</label>
                                 <input type="password" id="password" name="password"
                                     onChange={handleChange}
                                     onBlur={handleBlur}

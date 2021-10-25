@@ -7,7 +7,6 @@ const AUTH_TOKEN = 'auth-token';
 
 export const getToken = () => {
   localStorage.getItem(AUTH_TOKEN);
-
 }
 
 export const setToken = token => {
@@ -23,16 +22,14 @@ export const deleteToken = () => {
 }
 
 export const registerUser = async (newUser) => {
-  const token = await axios.post('/Account', newUser);
-  return setToken(token['data']);
+  const userWithToken = await axios.post('/Account', newUser);
+  setToken(userWithToken.data.jwt);
+  return userWithToken;
 }
 
 export const loginUser = async (user) => {
-  const token = await axios.post('/Account/Login', user);
-  return setToken(token['data']);
-}
-
-export const logoutUser = async () => {
-  await axios.post('/Account/Logout');
-  return deleteToken();
+  const userWithToken = await axios.post('/Account/Login', user);
+  console.log(userWithToken);
+  setToken(userWithToken.data.jwt);
+  return userWithToken;
 }

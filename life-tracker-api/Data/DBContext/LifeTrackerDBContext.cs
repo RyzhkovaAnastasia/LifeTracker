@@ -1,11 +1,13 @@
 ﻿using LifeTracker.Data;
 using LifeTracker.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Data
 {
-    public class LifeTrackerDBContext : IdentityDbContext<UserEntity>, ILifeTrackerDBContext
+    public class LifeTrackerDBContext : IdentityDbContext<UserEntity, IdentityRole<Guid>, Guid>, ILifeTrackerDBContext
     {
         public DbSet<UserEntity> Accounts { get; set; }
         public DbSet<RewardEntity> Rewards { get; set; }
@@ -191,14 +193,15 @@ namespace Data
             itemTagModelBuilder
                 .HasKey(i => new
                 {
+                    i.ItemType,
                     i.ItemId,
                     i.TagId
                 });
 
-            itemTagModelBuilder
-            .HasOne(i => i.Item)
-            .WithMany(t => t.Tags)
-            .HasForeignKey(ii => ii.ItemId);
+            //itemTagModelBuilder
+            //.HasOne(i => i.ItemType)
+            //.WithMany(t => t.Tags)
+            //.HasForeignKey(ii => ii.ItemId);
 
             itemTagModelBuilder
             .HasOne(t => t.Tag)
@@ -206,8 +209,8 @@ namespace Data
             .HasForeignKey(ti => ti.TagId);
 
             #endregion
-            #region SubtaskEntity
-            var subtaskTagModelBuilder = builder.Entity<SubtaskEntity>();
+            #region ToDoSubtaskEntity
+            var subtaskTagModelBuilder = builder.Entity<ToDoSubtaskEntity>();
 
             subtaskTagModelBuilder
                 .Property(x => x.Title)
@@ -220,9 +223,28 @@ namespace Data
                 .IsRequired();
 
             subtaskTagModelBuilder
-                .HasOne(ci => ci.ComplexItems)
+                .HasOne(ci => ci.ToDo)
                 .WithMany(s => s.Subtasks)
-                .HasForeignKey(cii => cii.ComplexItemsId);
+                .HasForeignKey(cii => cii.ToDoId);
+
+            #endregion
+            #region DailySubtaskEntity
+            var dailySubtaskTagModelBuilder = builder.Entity<DailySubtaskEntity>();
+
+            dailySubtaskTagModelBuilder
+                .Property(x => x.Title)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            dailySubtaskTagModelBuilder
+                .Property(s => s.IsComplete)
+                .HasDefaultValue(false)
+                .IsRequired();
+
+            dailySubtaskTagModelBuilder
+                .HasOne(ci => ci.Daily)
+                .WithMany(s => s.Subtasks)
+                .HasForeignKey(cii => cii.DailyId);
 
             #endregion
         }

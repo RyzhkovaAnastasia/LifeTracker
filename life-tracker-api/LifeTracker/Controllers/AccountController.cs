@@ -3,13 +3,14 @@ using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace LifeTrackerApi.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : ControllerBase
     {
         private readonly IUserDomain _userDomain;
         public AccountController(IUserDomain userDomain)
@@ -28,9 +29,9 @@ namespace LifeTrackerApi.Controllers
 
             try
             {
-                string id = _userDomain.RegisterUser(user);
+                var userModel = _userDomain.RegisterUser(user);
 
-                return Ok(_userDomain.GenerateJWT(id));
+                return Ok(_userDomain.GenerateJWT(userModel));
             }
             catch (RegistrationException e)
             {
@@ -44,8 +45,8 @@ namespace LifeTrackerApi.Controllers
         {
             try
             {
-                string id = _userDomain.LoginUser(user);
-                return Ok(_userDomain.GenerateJWT(id));
+                var userModel = _userDomain.LoginUser(user);
+                return Ok(_userDomain.GenerateJWT(userModel));
             }
             catch (LoginException ex)
             {
@@ -56,8 +57,8 @@ namespace LifeTrackerApi.Controllers
         [HttpGet("Users")]
         public IActionResult GetUsers()
         {
-            _userDomain.GetUsers();
-            return Ok();
+            var users = _userDomain.GetUsers();
+            return Ok(users);
         }
     }
 }

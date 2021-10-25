@@ -1,17 +1,9 @@
-using AutoMapper;
-using Data;
 using LifeTracker.Business;
-using LifeTracker.Business.Domain;
-using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.Options;
-using LifeTracker.Data;
-using LifeTracker.Data.Entities;
 using LifeTrackerApi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,37 +23,19 @@ namespace LifeTracker
 
         public void ConfigureServices(IServiceCollection services)
         {
-             services.AddControllers();
-
-            // DB connection
-            services.AddDbContext<LifeTrackerDBContext>(builder =>
-                builder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddIdentity<UserEntity, IdentityRole>()
-            .AddRoles<IdentityRole>()
-           .AddEntityFrameworkStores<LifeTrackerDBContext>();
-
-
-            services.Configure<IdentityOptions>(options =>
-            {
-                // Password settings
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 6;
-
-                // User settings
-                options.User.RequireUniqueEmail = true;
-            });
+            services.AddControllers();
 
             // Auth
             var authOptionsSection = Configuration.GetSection("Auth");
             services.Configure<AuthOption>(authOptionsSection);
 
             var authOptions = authOptionsSection.Get<AuthOption>();
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-              .AddJwtBearer(options =>
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
               {
                   options.RequireHttpsMetadata = true;
                   options.TokenValidationParameters = new TokenValidationParameters
@@ -94,16 +68,7 @@ namespace LifeTracker
                 });
             });
 
-            // Repositories
-            services.AddTransient<ILifeTrackerDBContext, LifeTrackerDBContext>();
-
-            // Domains
-            services.AddTransient<IUserDomain, UserDomain>();
-
-            // AutoMapper
-            var mapConfig = new MapperConfiguration(mc => mc.AddProfile(new MappingProfile()));
-            services.AddSingleton(mapConfig.CreateMapper());
-
+            BusinessLogicLayerConfig.SerivesDIConfig(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using System;
 using LifeTracker.Business.CustomException;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
 
 namespace LifeTracker.Business.Domain
 {
@@ -29,48 +30,43 @@ namespace LifeTracker.Business.Domain
             _authOptions = authOptions;
         }
 
-        public IEnumerable<UserViewModel> GetUsers() =>
-          _mapper.Map<IEnumerable<UserEntity>, IEnumerable<UserViewModel>>(_userManager.Users);
+        public List<UserViewModel> GetUsers() =>
+          _mapper.Map<IEnumerable<UserEntity>, IEnumerable<UserViewModel>>(_userManager.Users).ToList();
 
-        public string RegisterUser(RegisterViewModel user)
+        public UserViewModel RegisterUser(RegisterViewModel user)
         {
-            try
-            {
-                var userEntity = _mapper.Map<RegisterViewModel, UserEntity>(user);
-                _userManager.CreateAsync(userEntity, user.Password);
-                return _userManager.GetUserIdAsync(userEntity).Result;
-            }
-            catch(Exception e)
-            {
-                throw new RegistrationException(e.Message);
-            }
+            UserEntity userEntity = _mapper.Map<RegisterViewModel, UserEntity>(user);
+            var result = _userManager.CreateAsync(userEntity, user.Password).Result;
+
+            if (!result.Succeeded) throw new RegistrationException(string.Join("\n", result.Errors.Select(x => x.Description)));
+
+            return _mapper.Map<UserViewModel>(_userManager.FindByEmailAsync(user.Email).Result);
         }
 
-        public string LoginUser(LoginViewModel user)
+        public UserViewModel LoginUser(LoginViewModel user)
         {
             try
             {
                 var userEntity = _mapper.Map<LoginViewModel, LoginDTO>(user);
-                var userByEmail =_userManager.FindByEmailAsync(userEntity.Email).Result;
+                var userByEmail = _userManager.FindByEmailAsync(userEntity.Email).Result;
 
                 if (_userManager.CheckPasswordAsync(userByEmail, user.Password).Result)
                 {
-                    return _userManager.GetUserIdAsync(userByEmail).Result;
+                    return _mapper.Map<UserViewModel>(_userManager.FindByEmailAsync(user.Email).Result);
                 }
                 throw new LoginException("Invalid password");
             }
             catch
             {
-                throw new LoginException("Invalid credentials");
+                throw new LoginException("Invalid email");
             }
         }
 
-        public UserViewModel GetUser(string userId) 
-            => _mapper.Map<UserEntity, UserViewModel>(_userManager.FindByIdAsync(userId).Result);
+        public UserViewModel GetUser(Guid userId)
+            => _mapper.Map<UserEntity, UserViewModel>(_userManager.FindByIdAsync(userId.ToString()).Result);
 
-        public string GenerateJWT(string userId)
+        public UserAuthenticatedViewModel GenerateJWT(UserViewModel user)
         {
-            var user = GetUser(userId);
             var authOptions = _authOptions.Value;
 
             var securityKey = authOptions.SymmetricSecurityKey;
@@ -81,14 +77,16 @@ namespace LifeTracker.Business.Domain
               authOptions.Audience,
               new[]
               {
-                  new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+                  new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                   new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
-                  new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                  new Claim(JwtRegisteredClaimNames.Email, user.Email)
               },
               expires: DateTime.Now.AddMinutes(authOptions.TokenLifetime),
               signingCredentials: credentials);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var userWithToken = _mapper.Map<UserAuthenticatedViewModel>(user);
+            userWithToken.JWT = new JwtSecurityTokenHandler().WriteToken(token);
+            return userWithToken;
         }
     }
 }

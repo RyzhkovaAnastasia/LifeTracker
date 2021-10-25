@@ -1,11 +1,12 @@
 ﻿using LifeTracker.Business.ViewModels;
+using System;
 using System.Collections.Generic;
 
 namespace LifeTracker.Business.Models
 {
     public class UserViewModel
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public decimal? Currency { get; set; }

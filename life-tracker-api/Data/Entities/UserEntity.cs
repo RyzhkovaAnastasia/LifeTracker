@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 namespace LifeTracker.Data.Entities
 {
-    public class UserEntity : IdentityUser
+    public class UserEntity : IdentityUser<Guid>
     {
         public decimal? Currency { set; get; }
         public List<RewardEntity> Rewards { get; set; }
@@ -11,7 +12,7 @@ namespace LifeTracker.Data.Entities
         public List<ToDoEntity> ToDos { get; set; }
         public List<DailyEntity> Dailies { get; set; }
 
-        public UserEntity(): base()
+        public UserEntity() : base()
         {
             Rewards = new List<RewardEntity>();
             Habits = new List<HabitEntity>();
@@ -20,3 +21,4 @@ namespace LifeTracker.Data.Entities
         }
     }
 }
+

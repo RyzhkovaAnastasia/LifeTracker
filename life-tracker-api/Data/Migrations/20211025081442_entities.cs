@@ -14,7 +14,7 @@ namespace LifeTracker.Data.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -28,7 +28,7 @@ namespace LifeTracker.Data.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Currency = table.Column<decimal>(type: "decimal(18,2)", nullable: true, defaultValue: 10m),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -69,7 +69,7 @@ namespace LifeTracker.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -90,7 +90,7 @@ namespace LifeTracker.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -112,7 +112,7 @@ namespace LifeTracker.Data.Migrations
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -129,8 +129,8 @@ namespace LifeTracker.Data.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -153,7 +153,7 @@ namespace LifeTracker.Data.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -170,37 +170,126 @@ namespace LifeTracker.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemEntity",
+                name: "Dailies",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Note = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     ItemType = table.Column<int>(type: "int", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsComplete = table.Column<bool>(type: "bit", nullable: true, defaultValue: false),
-                    ComplexItemEntity_Date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "getdate()"),
-                    ComplexItemEntity_Difficulty = table.Column<int>(type: "int", nullable: true),
+                    IsComplete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     SeriesId = table.Column<int>(type: "int", nullable: true, defaultValueSql: "NEXT VALUE FOR SeriesId_seq"),
-                    DailyEntity_Reiteration = table.Column<int>(type: "int", nullable: true),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "getdate()"),
-                    IsEncouragment = table.Column<bool>(type: "bit", nullable: true),
-                    IsPunisment = table.Column<bool>(type: "bit", nullable: true),
-                    Strike = table.Column<int>(type: "int", nullable: true, defaultValue: 0),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "getdate()"),
-                    Difficulty = table.Column<int>(type: "int", nullable: true),
-                    Reiteration = table.Column<int>(type: "int", nullable: true),
-                    Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
+                    Reiteration = table.Column<int>(type: "int", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    Difficulty = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemEntity", x => x.Id);
+                    table.PrimaryKey("PK_Dailies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ItemEntity_AspNetUsers_UserId",
+                        name: "FK_Dailies_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Habits",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Note = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ItemType = table.Column<int>(type: "int", nullable: false),
+                    IsEncouragment = table.Column<bool>(type: "bit", nullable: true),
+                    IsPunisment = table.Column<bool>(type: "bit", nullable: true),
+                    Strike = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    Difficulty = table.Column<int>(type: "int", nullable: false),
+                    Reiteration = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Habits", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Habits_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rewards",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Note = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ItemType = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rewards", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Rewards_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ToDos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Note = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ItemType = table.Column<int>(type: "int", nullable: false),
+                    IsComplete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    Difficulty = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ToDos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ToDos_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DailySubtaskEntity",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsComplete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    DailyId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DailySubtaskEntity", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DailySubtaskEntity_Dailies_DailyId",
+                        column: x => x.DailyId,
+                        principalTable: "Dailies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -210,42 +299,65 @@ namespace LifeTracker.Data.Migrations
                 columns: table => new
                 {
                     TagId = table.Column<int>(type: "int", nullable: false),
-                    ItemId = table.Column<int>(type: "int", nullable: false)
+                    ItemType = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false),
+                    DailyEntityId = table.Column<int>(type: "int", nullable: true),
+                    HabitEntityId = table.Column<int>(type: "int", nullable: true),
+                    RewardEntityId = table.Column<int>(type: "int", nullable: true),
+                    ToDoEntityId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemTagsEntity", x => new { x.ItemId, x.TagId });
+                    table.PrimaryKey("PK_ItemTagsEntity", x => new { x.ItemType, x.ItemId, x.TagId });
                     table.ForeignKey(
-                        name: "FK_ItemTagsEntity_ItemEntity_ItemId",
-                        column: x => x.ItemId,
-                        principalTable: "ItemEntity",
+                        name: "FK_ItemTagsEntity_Dailies_DailyEntityId",
+                        column: x => x.DailyEntityId,
+                        principalTable: "Dailies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ItemTagsEntity_Habits_HabitEntityId",
+                        column: x => x.HabitEntityId,
+                        principalTable: "Habits",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ItemTagsEntity_Rewards_RewardEntityId",
+                        column: x => x.RewardEntityId,
+                        principalTable: "Rewards",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ItemTagsEntity_Tags_TagId",
                         column: x => x.TagId,
                         principalTable: "Tags",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ItemTagsEntity_ToDos_ToDoEntityId",
+                        column: x => x.ToDoEntityId,
+                        principalTable: "ToDos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SubtaskEntity",
+                name: "ToDoSubtaskEntity",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsComplete = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    ComplexItemsId = table.Column<int>(type: "int", nullable: false)
+                    ToDoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SubtaskEntity", x => x.Id);
+                    table.PrimaryKey("PK_ToDoSubtaskEntity", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SubtaskEntity_ItemEntity_ComplexItemsId",
-                        column: x => x.ComplexItemsId,
-                        principalTable: "ItemEntity",
+                        name: "FK_ToDoSubtaskEntity_ToDos_ToDoId",
+                        column: x => x.ToDoId,
+                        principalTable: "ToDos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -290,9 +402,34 @@ namespace LifeTracker.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemEntity_UserId",
-                table: "ItemEntity",
+                name: "IX_Dailies_UserId",
+                table: "Dailies",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DailySubtaskEntity_DailyId",
+                table: "DailySubtaskEntity",
+                column: "DailyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Habits_UserId",
+                table: "Habits",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItemTagsEntity_DailyEntityId",
+                table: "ItemTagsEntity",
+                column: "DailyEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItemTagsEntity_HabitEntityId",
+                table: "ItemTagsEntity",
+                column: "HabitEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ItemTagsEntity_RewardEntityId",
+                table: "ItemTagsEntity",
+                column: "RewardEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemTagsEntity_TagId",
@@ -300,9 +437,24 @@ namespace LifeTracker.Data.Migrations
                 column: "TagId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SubtaskEntity_ComplexItemsId",
-                table: "SubtaskEntity",
-                column: "ComplexItemsId");
+                name: "IX_ItemTagsEntity_ToDoEntityId",
+                table: "ItemTagsEntity",
+                column: "ToDoEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rewards_UserId",
+                table: "Rewards",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToDos_UserId",
+                table: "ToDos",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToDoSubtaskEntity_ToDoId",
+                table: "ToDoSubtaskEntity",
+                column: "ToDoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -323,19 +475,31 @@ namespace LifeTracker.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "DailySubtaskEntity");
+
+            migrationBuilder.DropTable(
                 name: "ItemTagsEntity");
 
             migrationBuilder.DropTable(
-                name: "SubtaskEntity");
+                name: "ToDoSubtaskEntity");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Dailies");
+
+            migrationBuilder.DropTable(
+                name: "Habits");
+
+            migrationBuilder.DropTable(
+                name: "Rewards");
+
+            migrationBuilder.DropTable(
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "ItemEntity");
+                name: "ToDos");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
