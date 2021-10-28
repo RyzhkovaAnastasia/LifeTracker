@@ -1,26 +1,26 @@
 ﻿using LifeTracker.Business.CustomException;
 using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Business.ViewModels;
+using LifeTrackerApi.Extension;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace LifeTrackerApi.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     [Authorize]
-    public class AccountController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserDomain _userDomain;
-        public AccountController(IUserDomain userDomain)
+        public UserController(IUserDomain userDomain)
         {
             _userDomain = userDomain;
         }
 
-        [HttpPost]
+        [HttpPost("SignUp")]
         [AllowAnonymous]
-        public IActionResult Register(RegisterViewModel user)
+        public IActionResult SignUp(RegisterViewModel user)
         {
             if (user.Password != user.PasswordConfirm)
             {
@@ -39,9 +39,9 @@ namespace LifeTrackerApi.Controllers
             }
         }
 
-        [HttpPost("Login")]
+        [HttpPost("SignIn")]
         [AllowAnonymous]
-        public IActionResult Login(LoginViewModel user)
+        public IActionResult SignIn(LoginViewModel user)
         {
             try
             {
@@ -58,6 +58,13 @@ namespace LifeTrackerApi.Controllers
         public IActionResult GetUsers()
         {
             var users = _userDomain.GetUsers();
+            return Ok(users);
+        }
+
+        [HttpGet("User")]
+        public IActionResult GetUser()
+        {
+            var users = _userDomain.GetUser(User.GetId());
             return Ok(users);
         }
     }

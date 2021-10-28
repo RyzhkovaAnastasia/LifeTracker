@@ -4,10 +4,22 @@ import Dashboard from './Dashboard';
 import UserInfo from './UserInfo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck, faUserEdit, faList, faLockOpen } from '@fortawesome/free-solid-svg-icons'
+import { getUser } from '../services/AuthService';
+import { useState, useEffect } from 'react';
 
 const Home = (props) => {
 
     const history = useHistory();
+
+    const [user, setUserObj] = useState(null); 
+    useEffect(getUserObj, []);
+
+    function getUserObj() {
+        getUser().then(user => {
+            setUserObj(user.data);
+        });
+    }
+
     const onLogout = () => {
         deleteToken();
         setTimeout(() => history.replace("/Login"), 1000);
@@ -40,8 +52,8 @@ const Home = (props) => {
                     </button>
                 </div>
             </nav>
-            <UserInfo />
-            <Dashboard />
+            <UserInfo user={user}/>
+            <Dashboard user={user}/>
         </div>
     );
 }

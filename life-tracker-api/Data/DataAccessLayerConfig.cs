@@ -1,6 +1,7 @@
 ﻿using Data;
 using LifeTracker.Data.Entities;
 using LifeTracker.Data.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,23 +19,16 @@ namespace LifeTracker.Data
             services.AddDbContext<LifeTrackerDBContext>(builder =>
                 builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<UserEntity, IdentityRole<Guid>>()
-            .AddRoles<IdentityRole<Guid>>()
-           .AddEntityFrameworkStores<LifeTrackerDBContext>();
-
-
-            services.Configure<IdentityOptions>(options =>
+            services.AddIdentityCore<UserEntity>(opt =>
             {
-                // Password settings
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 6;
-
-                // User settings
-                options.User.RequireUniqueEmail = true;
-            });
+                opt.Password.RequireDigit = true;
+                opt.Password.RequiredLength = 6;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireUppercase = true;
+                opt.Password.RequireLowercase = true;
+            }).AddRoles<IdentityRole<Guid>>()
+            .AddEntityFrameworkStores<LifeTrackerDBContext>()
+            .AddDefaultTokenProviders();
 
             // Repositories
             services.AddTransient<ILifeTrackerDBContext, LifeTrackerDBContext>();

@@ -4,6 +4,7 @@ using LifeTracker.Business.Domain.Interfaces;
 using LifeTracker.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NLog;
 
 namespace LifeTracker.Business
 {

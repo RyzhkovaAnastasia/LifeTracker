@@ -8,6 +8,7 @@
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.10" />
+    <PackageReference Include="NLog" Version="4.7.12" />
   </ItemGroup>
 
   <ItemGroup>

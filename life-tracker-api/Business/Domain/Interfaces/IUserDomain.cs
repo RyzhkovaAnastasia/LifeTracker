@@ -8,9 +8,9 @@ namespace LifeTracker.Business.Domain.Interfaces
     public interface IUserDomain
     {
         public List<UserViewModel> GetUsers();
-        UserViewModel RegisterUser(RegisterViewModel user);
-        UserViewModel LoginUser(LoginViewModel user);
-        UserViewModel GetUser(Guid userId);
-        UserAuthenticatedViewModel GenerateJWT(UserViewModel user);
+        public UserViewModel GetUser(Guid id);
+        public UserViewModel RegisterUser(RegisterViewModel user);
+        public UserViewModel LoginUser(LoginViewModel user);
+        string GenerateJWT(UserViewModel user);
     }
 }

@@ -192,6 +192,29 @@ namespace LifeTracker.Data.Migrations
                     b.ToTable("ItemTagsEntity");
                 });
 
+            modelBuilder.Entity("LifeTracker.Data.Entities.LogEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LogEntity");
+                });
+
             modelBuilder.Entity("LifeTracker.Data.Entities.RewardEntity", b =>
                 {
                     b.Property<int>("Id")

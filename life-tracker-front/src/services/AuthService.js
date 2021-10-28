@@ -22,14 +22,18 @@ export const deleteToken = () => {
 }
 
 export const registerUser = async (newUser) => {
-  const userWithToken = await axios.post('/Account', newUser);
-  setToken(userWithToken.data.jwt);
-  return userWithToken;
+  const userToken = await axios.post('/User/SignUp', newUser);
+  setToken(userToken.data);
+  return userToken;
 }
 
 export const loginUser = async (user) => {
-  const userWithToken = await axios.post('/Account/Login', user);
-  console.log(userWithToken);
-  setToken(userWithToken.data.jwt);
-  return userWithToken;
+  const userToken = await axios.post('/User/SignIn', user);
+  setToken(userToken.data);
+  return userToken;
+}
+
+export const getUser = async () => {
+  const userToken = await axios.get('/User/User');
+  return userToken;
 }

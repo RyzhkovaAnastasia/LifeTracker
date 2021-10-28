@@ -14,7 +14,6 @@ namespace LifeTracker.Business
             CreateMap<UserEntity, UserViewModel>().ReverseMap();
             CreateMap<LoginDTO, LoginViewModel>().ReverseMap();
             CreateMap<RegisterViewModel, UserEntity>();
-            CreateMap<UserViewModel, UserAuthenticatedViewModel>();
         }
     }
 }

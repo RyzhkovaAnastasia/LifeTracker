@@ -33,6 +33,9 @@ namespace LifeTracker.Business.Domain
         public List<UserViewModel> GetUsers() =>
           _mapper.Map<IEnumerable<UserEntity>, IEnumerable<UserViewModel>>(_userManager.Users).ToList();
 
+        public UserViewModel GetUser(Guid id) =>
+          _mapper.Map<UserViewModel>(_userManager.Users.FirstOrDefault(x => x.Id == id));
+
         public UserViewModel RegisterUser(RegisterViewModel user)
         {
             UserEntity userEntity = _mapper.Map<RegisterViewModel, UserEntity>(user);
@@ -62,10 +65,7 @@ namespace LifeTracker.Business.Domain
             }
         }
 
-        public UserViewModel GetUser(Guid userId)
-            => _mapper.Map<UserEntity, UserViewModel>(_userManager.FindByIdAsync(userId.ToString()).Result);
-
-        public UserAuthenticatedViewModel GenerateJWT(UserViewModel user)
+        public string GenerateJWT(UserViewModel user)
         {
             var authOptions = _authOptions.Value;
 
@@ -83,10 +83,7 @@ namespace LifeTracker.Business.Domain
               },
               expires: DateTime.Now.AddMinutes(authOptions.TokenLifetime),
               signingCredentials: credentials);
-
-            var userWithToken = _mapper.Map<UserAuthenticatedViewModel>(user);
-            userWithToken.JWT = new JwtSecurityTokenHandler().WriteToken(token);
-            return userWithToken;
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

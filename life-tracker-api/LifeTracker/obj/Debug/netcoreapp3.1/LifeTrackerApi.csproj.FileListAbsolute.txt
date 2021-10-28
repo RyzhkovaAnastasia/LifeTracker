@@ -153,8 +153,6 @@ C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netco
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
-C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Enums.dll
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Enums.pdb
@@ -234,3 +232,8 @@ C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\
 C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.dll
 C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.pdb
 C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.genruntimeconfig.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll

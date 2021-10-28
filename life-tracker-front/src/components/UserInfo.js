@@ -1,15 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoins, faLevelUpAlt } from '@fortawesome/free-solid-svg-icons'
 
-const UserInfo = () => {
+const UserInfo = (user) => {
     return (
         <div className="card w-1">
             <div className="card-body">
                 <div class="container p-4">
                     <div class="row">
                         <div className="col mx-5">
-                            <h4 className="mb-3 text-center"> User name</h4>
-                            <h6 className="card-subtitle text-muted mb-2"><FontAwesomeIcon icon={faCoins} className="text-warning" /> 10.00 </h6>
+                            <h4 className="mb-3 text-center">{user.userName == null ? "User_name" : user.userName}</h4>
+                            <h6 className="card-subtitle text-muted mb-2"><FontAwesomeIcon icon={faCoins} className="text-warning" /> {user.currency > 0 ? user.currency : "0"}</h6>
                             <div className="d-flex">
                             <h6 className="card-subtitle text-muted mb-2"><FontAwesomeIcon icon={faLevelUpAlt} className="text-info" /> 0</h6>
                             <div class="progress w-75 mx-5">

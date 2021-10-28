@@ -247,6 +247,21 @@ namespace Data
                 .HasForeignKey(cii => cii.DailyId);
 
             #endregion
+            #region Log
+            var logModelBuilder = builder.Entity<LogEntity>();
+
+            logModelBuilder
+              .Property(log => log.Message)
+              .IsRequired();
+
+            logModelBuilder
+              .Property(log => log.Level)
+              .IsRequired();
+
+            logModelBuilder
+              .Property(log => log.DateTime)
+              .IsRequired();
+            #endregion
         }
     }
 }
