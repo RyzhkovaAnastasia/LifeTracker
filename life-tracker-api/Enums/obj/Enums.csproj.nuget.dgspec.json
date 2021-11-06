@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj": {}
+    "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj": {
+    "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj",
+        "projectUniqueName": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj",
+        "projectPath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\sherl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Enums\\obj\\",
+        "outputPath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Enums\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

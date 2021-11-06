@@ -237,3 +237,6 @@ C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netco
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.csproj.CoreCompileInputs.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\obj\Debug\netcoreapp3.1\LifeTrackerApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\LifeTracker\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll

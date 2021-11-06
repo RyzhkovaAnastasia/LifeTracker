@@ -7,3 +7,12 @@ C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.csproj.CoreCompileInputs.cache
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.dll
 C:\Users\sherl\Desktop\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.pdb
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\bin\Debug\netcoreapp3.1\Enums.deps.json
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\bin\Debug\netcoreapp3.1\Enums.dll
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\bin\Debug\netcoreapp3.1\Enums.pdb
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.csprojAssemblyReference.cache
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.AssemblyInfoInputs.cache
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.AssemblyInfo.cs
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.csproj.CoreCompileInputs.cache
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.dll
+C:\Users\sherl\Desktop\ELEKS 09-12 21\Life tracker\life-tracker-api\Enums\obj\Debug\netcoreapp3.1\Enums.pdb

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tndm+ofA0V9cMYloHjlsbe5MopHeX8P29MKb0LTG+i+esivz5jpnDTfIGSo0o92a/7dqnQSGYfDcyyAxw1yAMg==",
+  "dgSpecHash": "AD74AXmEDP+qmtYbaxyJ8hntau4kxTsgX1b4id1nauxbofoHEsLVRPcgqsBBoUMNlTedmyp8M7ZZIDKO7FV90Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\LifeTracker\\LifeTrackerApi.csproj",
+  "projectFilePath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\LifeTracker\\LifeTrackerApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sherl\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

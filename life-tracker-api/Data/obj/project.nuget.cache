@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sNbNuNzS2+SUdPg3Xlh5jLM+vnwwxPuZ+axXwdreCuEBMb9056LrofRcvWqgPxRe5CA4DjtQGCtZjDwnYo6PWw==",
+  "dgSpecHash": "BOGfWiSBAhMQvSvv2GJ+QE242vDcOhMr3AiuD+htT8hTzopVOuWD+2g/BmEEY9yxStSFiwz2nIfaIcmanbn7nA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Data\\LifeTracker.Data.csproj",
+  "projectFilePath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Data\\LifeTracker.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sherl\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.3\\microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",

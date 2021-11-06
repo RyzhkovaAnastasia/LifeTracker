@@ -6756,11 +6756,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Business\\LifeTracker.Business.csproj",
+      "projectUniqueName": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Business\\LifeTracker.Business.csproj",
       "projectName": "LifeTracker.Business",
-      "projectPath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Business\\LifeTracker.Business.csproj",
+      "projectPath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Business\\LifeTracker.Business.csproj",
       "packagesPath": "C:\\Users\\sherl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Business\\obj\\",
+      "outputPath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6779,8 +6779,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Data\\LifeTracker.Data.csproj": {
-              "projectPath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Data\\LifeTracker.Data.csproj"
+            "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Data\\LifeTracker.Data.csproj": {
+              "projectPath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Data\\LifeTracker.Data.csproj"
             }
           }
         }

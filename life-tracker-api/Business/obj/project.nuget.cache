@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iqzXyT3GOQax7CRGitSd64yXQafHKILMSqKvHdnal9oGH+XUUvvUb55l6IuF/h0K0G/F6xpeNVcrMmZdXw2ebQ==",
+  "dgSpecHash": "V9cInq71CPvQmSDnHxx6AG6/stTVhmZ6UkalDsP3NzBHB4+pBwPu4TD2M6e2fOsM/oxmdkhLR+FWowYfK6WNRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sherl\\Desktop\\Life tracker\\life-tracker-api\\Business\\LifeTracker.Business.csproj",
+  "projectFilePath": "C:\\Users\\sherl\\Desktop\\ELEKS 09-12 21\\Life tracker\\life-tracker-api\\Business\\LifeTracker.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sherl\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\sherl\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.3\\microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
